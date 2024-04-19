@@ -1,0 +1,120 @@
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+    .bg-gradient {
+      background: linear-gradient(to bottom right, #00aaff, #6e61ff, #c96bff);
+      overflow-y:hidden;
+      overflow-x: hidden;
+    }
+
+    .lyrics-container {
+      background: linear-gradient(to right, #ba68c8, #ab47bc, #9c27b0);
+      max-height: 200px;
+      overflow-y: auto;
+      color: white;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 4px;
+      background-color: #ff9800;
+      transition: width 28s linear;
+    }
+
+    .disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #song-title{
+      color: purple;
+      letter-spacing: 1.5px;
+    }
+.box div {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color:white;
+  border-radius: 50%;
+  top: 50%;
+  left: -150px;
+  transform-origin: calc(300px + 50%);
+  box-shadow:
+    0 0 50px 10px cyan,
+    0 0 50px 15px #c377c7;;
+  transform: rotate(-30deg);
+  animation: orbit 30s linear infinite;
+}
+
+
+.box div:nth-child(1) {
+  top: 12%;
+  left: 42%;
+  animation: orbit 5s linear infinite;
+}
+
+.box div:nth-child(2) {
+  top: 70%;
+  left: 50%;
+  animation: orbit 7s linear infinite;
+}
+.box div:nth-child(3) {
+  top: 17%;
+  left: 6%;
+  animation: orbit 9s linear infinite;
+}
+
+.box div:nth-child(4) {
+  top: 20%;
+  left: 60%;
+  animation: orbit 10s linear infinite;
+}
+
+.box div:nth-child(5) {
+  top: 67%;
+  left: 10%;
+  animation: orbit 6s linear infinite;
+}
+
+.box div:nth-child(6) {
+  top: 80%;
+  left: 70%;
+  animation: orbit 12s linear infinite;
+}
+
+.box div:nth-child(7) {
+  top: 60%;
+  left: 80%;
+  animation: orbit 12s linear infinite;
+}
+
+.box div:nth-child(8) {
+  top: 32%;
+  left: 25%;
+  animation: orbit 16s linear infinite;
+}
+
+.box div:nth-child(9) {
+  top: 90%;
+  left: 25%;
+  animation: orbit 9s linear infinite;
+}
+
+.box div:nth-child(10) {
+  top: 20%;
+  left: 80%;
+  animation: orbit 5s linear infinite;
+}
+
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
