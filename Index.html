@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sanskrit Song</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  
+</head>
+<body class="bg-gradient">
+  <div class="flex flex-col h-screen justify-center items-center p-4">
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-md">
+      <h1 class="text-center text-2xl font-bold p-4" id="song-title">The Sanskrit Song</h1>
+      <div class="lyrics-container p-4">
+      </div>
+      <div class="bg-gray-200 p-4 rounded-b-lg">
+        <div class="progress-bar"></div>
+        <div class="flex justify-center mt-4">
+          <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 disabled">
+            <i class="fa-solid fa-backward"></i>
+          </button>
+          <button onclick="startLyricsHighlighter()" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <i class="play-button-icon fa-solid fa-play"></i>
+          </button>
+          <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 disabled">
+            <i class="fa-solid fa-forward"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <script>
+    let isPlaying = false;
+
+    function triggerBlastEffect() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: {
+          x: 0.5,
+          y: 0.5
+        },
+        shapes: ['square'],
+        colors: ['#ff0a0a', '#ff7700', '#ffe700', '#008000', '#0000ff', '#4b0082', '#ee82ee']
+      });
+    }
+
+    function startLyricsHighlighter() {
+      if (!isPlaying) {
+        const lyricsContainer = document.querySelector('.lyrics-container');
+        const progressBar = document.querySelector('.progress-bar');
+        const audio = new Audio('https://thekipkopbeats.com/mp3/wp-content/uploads/2023/10/avidyanam-antas-timira-ringtone-tkkb.mp3');
+        const lyrics = [
+          "Avidyanam Antas-Timira-Mihira-Dweepa-Nagari",
+          "Jadanam Chaitanya-Stabaka-Makaranda-Shruti Jhar",
+          "Oh gracious one you're the sun that dispels the darkness of the unlettered",
+          "You're the stream of consciousness for the unthinking fool",
+          "Daridranam Chinta-Mani-Gunanika Janma-Jaladhau",
+          "Nimaghanam Damshtra Mura-Ripu-Varahasya Bhavati",
+        ];
+
+        lyrics.forEach((line) => {
+          const p = document.createElement('p');
+          p.textContent = line;
+          p.classList.add('text-lg', 'font-bold');
+          lyricsContainer.appendChild(p);
+        });
+
+        audio.play();
+        progressBar.style.width = '100%';
+        isPlaying = true;
+        const playButtonIcon = document.querySelector('.play-button-icon');
+        playButtonIcon.classList.remove('fa-play');
+        playButtonIcon.classList.add('fa-pause');
+        triggerBlastEffect();
+      }
+    }
+  </script>
+</body>
+  </html>
